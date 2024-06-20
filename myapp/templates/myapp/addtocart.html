@@ -20,21 +20,19 @@
               <div>
                 <h5>{{item.product.title}}</h5>
                 <p class="mb-2 text-muted small">{{item.product.description}}</p>
+              </div> 
+
                 <div class="my-3">
                   <label for="quantity">Quantity:</label>
-                  <a class="minus-cart btn btn-sm btn-outline-secondary" pid={{item.product.id}}>
-                    <i class="fas fa-minus-square fa-lg"></i>
-                  </a>
+                  <a class="minus-cart btn" pid={{item.product.id}}><i class="fas fa-minus-square fa-lg"></i></a>
                   <span id='quantity'>{{item.quantity}}</span>
-                  <a class='plus-cart btn btn-sm btn-outline-secondary' pid={{item.product.id}}>
-                    <i class="fas fa-plus-square fa-lg"></i>
-                  </a>
+                  <a class='plus-cart btn' pid={{item.product.id}}><i class="fas fa-plus-square fa-lg"></i></a>
                 </div>
-                <div class="d-flex justify-content-between align-items-center">
-                  <a href="#" class="remove-cart btn btn-sm btn-danger" pid={{item.product.id}}>Remove Item</a>
+
+                <div class="d-flex justify-content-between">
+                  <a class="remove-cart btn btn-danger mr-3" pid={{item.product.id}}>Remove Item</a>
                   <p class="mb-0"><strong>#. {{item.product.discounted_price}}</strong></p>
                 </div>
-              </div>
             </div>
           </div>
           <hr class="text-muted">
