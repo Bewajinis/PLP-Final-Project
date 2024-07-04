@@ -13,6 +13,8 @@ class LoginForm(AuthenticationForm):
     password = forms.CharField(widget=forms.PasswordInput(attrs={'autocomplete':'current-password','class':'form-control'}))
 
 
+
+
 class CustomerRegistrationForm(UserCreationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'autofocus ':'True', 'class':'form-control'}))
     email = forms.CharField( widget=forms.PasswordInput(attrs={'class':'form-control'}))  

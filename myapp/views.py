@@ -1,5 +1,3 @@
-from ast import Delete
-import re
 from django.http import JsonResponse
 from django.shortcuts import redirect, render
 from django.views import View
@@ -7,6 +5,7 @@ from . models import Cart, Customer, Product
 from . forms import CustomerRegistrationForm, CustomerProfileForm
 from django.contrib import messages
 from django.db.models import Count
+from django.contrib.auth import logout
 from django.db.models import Q 
 
 # Create your views here.
@@ -20,6 +19,14 @@ def contact(request):
 
 def about(request):
     return render(request, 'myapp/about.html')
+
+def logout_view(request):
+    if request.method == 'POST':  # or 'DELETE'
+        # perform logout logic
+        return redirect('home')
+    else:
+        context = {'error_message': 'You have been logged out Successfully.'}
+        return render(request, 'myapp/logout.html', context)
 
 
 class CategoryView(View):
@@ -115,6 +122,11 @@ def show_cart(request):
         amount = amount + value
     totalamount = amount + 40
     return render(request, 'myapp/addtocart.html', locals())
+
+class checkout(View):
+    def get(self, request):
+        return render(request, 'myapp/checkout.html', locals())
+
 
 def plus_cart(request):
     if request.method == 'GET':

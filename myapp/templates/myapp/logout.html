@@ -1,0 +1,14 @@
+{% extends "myapp/base.html" %}
+{% load static %}
+{% block title %}Logout{% endblock title %}
+
+{% block main-content %}
+    {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% endif %}
+        <a href="{% url 'login' %}" class="btn btn-primary">Go to Login Page</a>
+{% endblock %}
+
+
+
+
