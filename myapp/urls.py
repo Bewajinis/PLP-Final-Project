@@ -36,7 +36,6 @@ urlpatterns = [
     path('password-reset/', auth_view.PasswordResetView.as_view (template_name='myapp/password_reset.html', form_class=MyPasswordResetForm), name='password_reset'),
     path('passwordchange/', auth_view.PasswordChangeView.as_view(template_name='myapp/changepassword.html', form_class=MyPasswordChangeForm, success_url='/passwordchangedone'), name='passwordchange'),
     path('passwordchangedone/', auth_view.PasswordChangeDoneView.as_view(template_name='myapp/passwordchangedone.html'), name='passwordchangedone'),
-    # path('logout/', auth_view.LogoutView.as_view(next_page='login'), name='logout'),
     path('logout/', logout_view, name='logout'),
     path('password-reset/done/', auth_view.PasswordResetDoneView.as_view(template_name ='myapp/password_reset_done.html'), name='password_reset_done'),
     path('password-reset-confirm/<uidb64>/<token>/', auth_view.PasswordResetConfirmView.as_view(template_name ='myapp/password_reset_confirm.html'), name='password_reset_confirm'),
